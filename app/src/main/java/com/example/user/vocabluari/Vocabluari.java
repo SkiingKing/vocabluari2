@@ -19,7 +19,7 @@ public class Vocabluari {
     private ArrayList value ;
     private ArrayList translete ,RightWord;
 
-    public void work(ArrayList value, ArrayList translete, TextView right_word, Button FalseWordOne, Button FalseWordTwo, Button FalseWordThree) {
+    public String work(ArrayList value, ArrayList translete, TextView right_word, Button FalseWordOne, Button FalseWordTwo, Button FalseWordThree) {
 
         ArrayList false_word = new ArrayList();
 
@@ -44,23 +44,17 @@ public class Vocabluari {
         FalseWordTwo.setText((CharSequence) false_word.get(1));
         FalseWordThree.setText((CharSequence) false_word.get(2));
 
-
-/*
-            if((FalseWordOne.equals(translete.get(word_index)) && FalseWordOne.isPressed())
-                || (FalseWordTwo.equals(translete.get(word_index)) && FalseWordOne.isPressed() )
-                    || (FalseWordThree.equals(translete.get(word_index)) && FalseWordOne.isPressed() )   ){
-                            RESULT++;
-            }
-
-*/
-
-    }
+         String rightWord = (String) translete.get(word_index);
 
 
+         return  rightWord;
 
 
 
     }
+
+
+}
 
 
 

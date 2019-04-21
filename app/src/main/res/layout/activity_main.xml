@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +19,7 @@
         android:text="@string/word"
         android:layout_centerInParent="true"
         android:textStyle="bold"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textColor="@android:color/black" />
 
     <LinearLayout
@@ -37,6 +37,7 @@
         android:id="@+id/answer_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_states"
         android:text="@string/answer_1"
         android:layout_margin="8dp"
         android:layout_alignParentBottom="true"/>
@@ -46,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:background="@drawable/button_states"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/answer_one"
         android:text="@string/answer_2" />
@@ -55,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:background="@drawable/button_states"
         android:layout_alignParentBottom="true"
         android:text="@string/answer_3"
         android:layout_toRightOf="@+id/answer_two"/>
@@ -62,4 +65,16 @@
 
 
     </LinearLayout>
+
+   <Button
+       android:id="@+id/next"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/next"
+       android:layout_alignParentBottom="true"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="16dp"
+       android:background="@drawable/next"
+       android:layout_marginBottom="30dp"/>
+
 </RelativeLayout>

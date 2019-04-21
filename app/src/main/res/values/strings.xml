@@ -4,6 +4,7 @@
     <string name="answer_1">Answer_1</string>
     <string name="answer_2">Answer_2</string>
     <string name="answer_3">Answer_3</string>
+    <string name="next">Наступний</string>
 
     <string-array name="word_value">
         <item>activity </item>
