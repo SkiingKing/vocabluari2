@@ -31,8 +31,8 @@ public class Vocabluari {
 
         false_word.add(0, translete.get(word_index));
 
-        int r = random.nextInt(value.size());
-        int d = random.nextInt(value.size());
+        int r = random.nextInt(translete.size());
+        int d = random.nextInt(translete.size());
 
 
 
@@ -51,11 +51,26 @@ public class Vocabluari {
         Collections.shuffle(false_word);
 
         right_word.setText((CharSequence) value.get(word_index));
+        try {
+            FalseWordOne.setText((CharSequence) false_word.get(0));
+            FalseWordTwo.setText((CharSequence) false_word.get(1));
+            FalseWordThree.setText((CharSequence) false_word.get(2));
+        }
+        catch (IndexOutOfBoundsException e){
+           r = random.nextInt(translete.size());
+            d = random.nextInt(translete.size());
 
-        FalseWordOne.setText((CharSequence) false_word.get(0));
-        FalseWordTwo.setText((CharSequence) false_word.get(1));
-        FalseWordThree.setText((CharSequence) false_word.get(2));
+            if(translete.get(r) != translete.get(word_index) && translete.get(d) != translete.get(word_index)){
+                false_word.add(1,translete.get(r));
+                false_word.add(2,translete.get(d));
 
+                FalseWordOne.setText((CharSequence) false_word.get(0));
+                FalseWordTwo.setText((CharSequence) false_word.get(1));
+                FalseWordThree.setText((CharSequence) false_word.get(2));
+            }
+
+
+        }
          final String rightWord = (String) translete.get(word_index);
 
          FalseWordOne.setOnClickListener(new View.OnClickListener() {

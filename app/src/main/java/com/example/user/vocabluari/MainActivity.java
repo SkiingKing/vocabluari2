@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     private Button answer_one,answer_two,answer_three,next;
     private TextView right_word,result;
     public ArrayList<String> value;
-    private ArrayList transete;
+    private ArrayList<String> transete;
     private String rightWord;
     private String result_bal;
 
