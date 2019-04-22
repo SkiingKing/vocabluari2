@@ -1,5 +1,7 @@
 package com.example.user.vocabluari;
 
+import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,24 +21,34 @@ public class Vocabluari {
     private ArrayList value ;
     private ArrayList translete ,RightWord;
 
-    public String work(ArrayList value, ArrayList translete, TextView right_word, Button FalseWordOne, Button FalseWordTwo, Button FalseWordThree) {
+    public String work(ArrayList value, final ArrayList translete, TextView right_word, final Button FalseWordOne, final Button FalseWordTwo, final Button FalseWordThree) {
 
         ArrayList false_word = new ArrayList();
 
         Random random = new Random();
         int item =  random.nextInt(value.size());
-        int word_index = value.indexOf(value.get(item)); //отримали індекс нашого рандомного слова
+        final int word_index = value.indexOf(value.get(item)); //отримали індекс нашого рандомного слова
 
         false_word.add(0, translete.get(word_index));
 
-        for(int i = 0;i<value.size();i++){
-            if(translete.get(i) != translete.get(word_index)){
-                false_word.add(translete.get(i));
+        int r = random.nextInt(value.size());
+        int d = random.nextInt(value.size());
+
+
+
+        Log.d("Fab", String.valueOf(r));
+        Log.d("Fab", String.valueOf(d));
+
+
+
+            if(translete.get(r) != translete.get(word_index) && translete.get(d) != translete.get(word_index)){
+                false_word.add(1,translete.get(r));
+                false_word.add(2,translete.get(d));
 
             }
-        }
-         //TODO пофіксити баг(перемішати елементи списка)
 
+
+        Collections.shuffle(false_word);
 
         right_word.setText((CharSequence) value.get(word_index));
 
@@ -44,10 +56,53 @@ public class Vocabluari {
         FalseWordTwo.setText((CharSequence) false_word.get(1));
         FalseWordThree.setText((CharSequence) false_word.get(2));
 
-         String rightWord = (String) translete.get(word_index);
+         final String rightWord = (String) translete.get(word_index);
+
+         FalseWordOne.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 if(translete.get(word_index) == FalseWordOne.getText()){
+                     RESULT++;
+                     FalseWordOne.setBackgroundColor(Color.GREEN);
+
+                    // String r = Integer.toString(RESULT);
+                     //result.setText(r);
+
+                 }else FalseWordOne.setBackgroundColor(Color.RED);
+             }
+         });
+
+        FalseWordTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(translete.get(word_index) == FalseWordTwo.getText()){
+                    RESULT++;
+                    FalseWordTwo.setBackgroundColor(Color.GREEN);
 
 
-         return  rightWord;
+                    // String r = Integer.toString(RESULT);
+                    //result.setText(r);
+
+                }else FalseWordTwo.setBackgroundColor(Color.RED);
+            }
+        });
+
+        FalseWordThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(translete.get(word_index) == FalseWordThree.getText()){
+                    RESULT++;
+                    FalseWordThree.setBackgroundColor(Color.GREEN);
+
+                    // String r = Integer.toString(RESULT);
+                    //result.setText(r);
+
+                }else FalseWordThree.setBackgroundColor(Color.RED);
+            }
+        });
+
+
+         return String.valueOf(RESULT);
 
 
 

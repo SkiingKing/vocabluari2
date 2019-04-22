@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     public ArrayList<String> value;
     private ArrayList transete;
     private String rightWord;
-
+    private String result_bal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
         result = findViewById(R.id.test_result);
         next = findViewById(R.id.next);
 
-        Vocabluari group_one = new Vocabluari();
+        final Vocabluari group_one = new Vocabluari();
 
         value = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.word_value)));
         transete = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.word_translete)));
@@ -41,61 +41,34 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
         group_one.work(value, transete, right_word, answer_one, answer_two, answer_three);
 
 
+        //rightWord = group_one.work(value, transete, right_word, answer_one, answer_two, answer_three);
 
 
 
 
-        rightWord = group_one.work(value, transete, right_word, answer_one, answer_two, answer_three);
-
-        answer_one.setOnClickListener(new View.OnClickListener() {
 
 
-            @Override
-            public void onClick(View view) {
-                if(rightWord == answer_one.getText()){
-                    RESULT++;
-                    answer_one.setBackgroundColor(Color.GREEN);
-                    String r = Integer.toString(RESULT);
-                    result.setText(r);
-                }else answer_one.setBackgroundColor(Color.RED);
-            }
-        });
+            next.setOnClickListener(new View.OnClickListener() {
 
-        answer_two.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View view) {
-                if(rightWord == answer_two.getText()){
-                    RESULT++;
-                    answer_two.setBackgroundColor(Color.GREEN);
-                    String r = Integer.toString(RESULT);
-                    result.setText(r);
-                }else answer_two.setBackgroundColor(Color.RED);
-            }
-        });
+                    answer_one.setBackground(getResources().getDrawable(R.drawable.button_states));
+                    answer_two.setBackground(getResources().getDrawable(R.drawable.button_states));
+                    answer_three.setBackground(getResources().getDrawable(R.drawable.button_states));
 
-        answer_three.setOnClickListener(new View.OnClickListener() {
+                    Vocabluari next_vob = new Vocabluari();
+                    next_vob.work(value, transete, right_word, answer_one, answer_two, answer_three);
 
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View view) {
-                if(rightWord == answer_three.getText()){
-                    RESULT++;
-                    answer_three.setBackgroundColor(Color.GREEN);
-                    String r = Integer.toString(RESULT);
-                    result.setText(r);
-                }else answer_three.setBackgroundColor(Color.RED);
-            }
-        });
+                    result_bal = group_one.work(value, transete, right_word, answer_one, answer_two, answer_three);
+                    result.setText(result_bal);
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Vocabluari next_vob = new  Vocabluari();
-                next_vob.work(value, transete, right_word, answer_one, answer_two, answer_three);
-            }
-        });
+
+
+                }
+            });
+
+
 
     }
 
