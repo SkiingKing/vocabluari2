@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +25,7 @@ public class Vocabluari {
 
     public String work(final ArrayList value, final ArrayList translete, final TextView right_word,
                        final Button FalseWordOne, final Button FalseWordTwo, final Button FalseWordThree,
-                       final Button Next , final TextView text_result) {
+                       final Button Next , final TextView text_result,final TextView count_text,final TextView size) {
 
         ArrayList false_word = new ArrayList();
 
@@ -136,7 +137,7 @@ public class Vocabluari {
                 FalseWordThree.setBackgroundColor(Color.YELLOW);
 
                 Vocabluari next_vob = new Vocabluari();
-                next_vob.work(value, translete, right_word, FalseWordOne, FalseWordTwo, FalseWordThree, Next, text_result);
+                next_vob.work(value, translete, right_word, FalseWordOne, FalseWordTwo, FalseWordThree, Next, text_result,count_text,size);
 
 
 
@@ -144,6 +145,9 @@ public class Vocabluari {
 
             }
         });
+
+      count_text.setText(String.valueOf(count));
+      size.setText(String.valueOf(value.size()));
 
         if (count == value.size()) {
 

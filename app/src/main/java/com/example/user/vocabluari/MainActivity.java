@@ -14,15 +14,12 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
 
-    private static int RESULT = 0 ;
+
     private Button answer_one,answer_two,answer_three,next;
-    private TextView right_word,result,counted,text_result_b;
+    private TextView right_word,text_count,size,text_result_b;
     public ArrayList<String> value;
     private ArrayList<String> transete;
-    private String rightWord;
-    private String result_bal;
-    private int count = 0;
-    private Context context;
+
 
 
     @Override
@@ -34,11 +31,10 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
         answer_two = findViewById(R.id.answer_two);
         answer_three = findViewById(R.id.answer_three);
         right_word = findViewById(R.id.right_word);
-        result = findViewById(R.id.test_result);
         next = findViewById(R.id.next);
-        counted = findViewById(R.id.count);
         text_result_b = findViewById(R.id.text_result_b);
-
+        text_count = findViewById(R.id.count_text);
+        size = findViewById(R.id.size);
 
         final Vocabluari group_one = new Vocabluari();
 
@@ -46,7 +42,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
         transete = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.word_translete)));
 
 
-        group_one.work(value, transete, right_word, answer_one, answer_two, answer_three,next,text_result_b);
+        group_one.work(value, transete, right_word, answer_one, answer_two, answer_three,next,text_result_b,text_count,size);
 
 
 
